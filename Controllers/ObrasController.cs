@@ -30,6 +30,6 @@ public class ObrasController : ControllerBase
     {
         ObrasRepository obrasRepository = ObrasRepository.Instance;
         obrasRepository.Add(obra);
-        return CreatedAtAction( null, new { id = obra.Id }, obra);
+        return CreatedAtAction( nameof(Get), new { id = obra.Id }, obra);
     }
 }
