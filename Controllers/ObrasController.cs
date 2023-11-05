@@ -32,4 +32,15 @@ public class ObrasController : ControllerBase
         obrasRepository.Add(obra);
         return CreatedAtAction( nameof(Get), new { id = obra.Id }, obra);
     }
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Obras obra)
+    {
+        if(id != obra.Id)
+            return BadRequest();
+        ObrasRepository obrasRepository = ObrasRepository.Instance;
+        Obras? existeObj = obrasRepository.Update(obra);
+        if(existeObj == null)
+            return NotFound();
+        return NoContent();
+    }
 }

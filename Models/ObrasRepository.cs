@@ -25,4 +25,12 @@ public class ObrasRepository
     {
         return obras.FirstOrDefault(p => p.Id == id);
     }
+    public Obras? Update(Obras obra)
+    {
+        int index = obras.FindIndex(p => p.Id == obra.Id);
+        if(index == -1)
+            return null;
+        obras[index] = obra;
+        return obras[index];
+    }
 }
