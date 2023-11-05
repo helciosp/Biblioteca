@@ -43,4 +43,14 @@ public class ObrasController : ControllerBase
             return NotFound();
         return NoContent();
     }
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        ObrasRepository obrasRepository = ObrasRepository.Instance;
+        Obras? obra = obrasRepository.Get(id);
+        if(obra == null)
+            return NotFound();
+        obrasRepository.Delete(obra);
+        return NoContent();
+    }
 }

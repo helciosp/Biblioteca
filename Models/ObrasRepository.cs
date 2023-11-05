@@ -33,4 +33,8 @@ public class ObrasRepository
         obras[index] = obra;
         return obras[index];
     }
+    public void Delete(Obras obra)
+    {
+        obras.Remove(obra);
+    }
 }
