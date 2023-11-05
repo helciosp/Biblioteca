@@ -15,6 +15,15 @@ public class ObrasController : ControllerBase
         ObrasRepository obrasRepository = ObrasRepository.Instance;
         return obrasRepository.GetAll();
     }
+    [HttpGet("{id}")]
+    public ActionResult<Obras> Get(int id)
+    {
+        ObrasRepository obrasRepository = ObrasRepository.Instance;
+        Obras? obra = obrasRepository.Get(id);
+        if(obra == null)
+            return NotFound();
+        return obra;
+    }
     
     [HttpPost]
     public IActionResult Add(Obras obra)

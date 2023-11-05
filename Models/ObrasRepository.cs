@@ -21,4 +21,8 @@ public class ObrasRepository
     {
         return obras;
     }
+    public Obras? Get(int id)
+    {
+        return obras.FirstOrDefault(p => p.Id == id);
+    }
 }
